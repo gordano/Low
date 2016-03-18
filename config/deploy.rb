@@ -9,7 +9,7 @@ set :repo_url, 'git@github.com:gordano/low.git'
 
 # Default deploy_to directory is /var/www/my_app_name
 #set :default_env, { path: "~/.rbenv/shims:~/.rbenv/bin:$PATH" }
-set :rbenv_path, '/home/deploy/.rbenv'
+#set :rbenv_path, '/home/deploy/.rbenv'
 set :deploy_to,  '/home/deploy/lowohm'
 
 # Default value for :scm is :git

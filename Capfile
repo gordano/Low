@@ -20,6 +20,7 @@ set :rbenv_ruby, '2.2.4'
 
 require 'capistrano/bundler'
 require 'capistrano/rails'
+#require 'capistrano/rvm'
 
 
 #require 'capistrano/setup'
@@ -28,7 +29,7 @@ require 'capistrano/rails'
 #require 'capistrano/rails/migrations'
 
 # require 'capistrano/rvm'
-# require 'capistrano/rbenv'
+require 'capistrano/rbenv'
 # require 'capistrano/chruby'
 # require 'capistrano/bundler'
 # require 'capistrano/rails/assets'
