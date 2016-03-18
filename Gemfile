@@ -41,7 +41,7 @@ group :development do
   gem 'capistrano', '~> 3.4'
   gem 'capistrano-rails', '~> 1.1', '>= 1.1.6'
   gem 'capistrano-bundler', '~> 1.1', '>= 1.1.4'
-  #gem 'capistrano-rbenv', '~> 2.0', '>= 2.0.4'
+  gem 'capistrano-rbenv', '~> 2.0', '>= 2.0.4'
   gem 'capistrano-rvm'
 
   # Access an IRB console on exception pages or by using <%= console %> in views

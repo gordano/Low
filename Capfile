@@ -16,10 +16,16 @@ require 'capistrano/deploy'
 #   https://github.com/capistrano/passenger
 
 set :rbenv_type, :user # or :system, depends on your rbenv setup
-set :rbenv_ruby, '2.2.4p230'
+set :rbenv_ruby, '2.2.4'
 
 require 'capistrano/bundler'
 require 'capistrano/rails'
+
+
+#require 'capistrano/setup'
+#require 'capistrano/deploy'
+#require 'capistrano/rvm'
+#require 'capistrano/rails/migrations'
 
 # require 'capistrano/rvm'
 # require 'capistrano/rbenv'

@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:gordano/low.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :default_env, { path: "~/.rbenv/shims:~/.rbenv/bin:$PATH" }
+#set :default_env, { path: "~/.rbenv/shims:~/.rbenv/bin:$PATH" }
 set :rbenv_path, '/home/deploy/.rbenv'
 set :deploy_to,  '/home/deploy/lowohm'
 
