@@ -4,8 +4,6 @@ class Product < ActiveRecord::Base
   belongs_to :nicotine
   has_many :details
 
-  has_many :products_in_orders
-  has_many :orders, through: :products_in_orders
   validates_presence_of :price, :title, :brand_id, :description,
                         :presence => true
 
