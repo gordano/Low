@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   def index
-    products = Product.all
-    render json: products, status: 200
+    @products = Product.all
+  end
+  def show
+    @product = Product.find(params[:id])
   end
 end
