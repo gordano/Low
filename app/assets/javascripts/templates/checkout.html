@@ -1,0 +1,88 @@
+<div ng-if="!orderStatusOk">
+<section class="row" ng-if="orderProducts">
+  <h1 class="text-center h2" ng-if="orderProducts">Order List </h1>
+  <section class="well col-md-6 col-md-offset-3">
+
+    <form name="userForm" ng-submit="orderSubmit()" validate>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" class="form-control"
+                    ng-model="user.fio"
+                    required>
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" name="phone" class="form-control"
+                    ng-model="user.phone"
+                    required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" name="email" class="form-control"
+                    ng-model="user.email"
+                    required>
+      </div>
+      <div class="form-group">
+        <label>Comment</label>
+        <textarea type="text" name="comment" class="form-control"
+                    ng-model="user.comment"
+                    >
+        </textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-danger" >Checkout order</button>
+      </div>
+
+    </form>
+
+
+  </section>
+
+  <ul class="list-unstyled">
+      <li ng-repeat="orderProduct in orderProducts">
+        <section class="well col-md-6 col-md-offset-3">
+          <div class="row">
+            <div class="col-md-2">
+              {{orderProduct.title}}
+            </div>
+            <div class="col-md-2">
+              {{cartProduct.brand}}
+            </div>
+            <div class="col-md-2">
+              {{orderProduct.price}}
+            </div>
+            <div class="col-md-2">
+              {{orderProduct.nicotine}}
+            </div>
+            <div class="col-md-2">
+              {{orderProduct.quantity}}
+            </div>
+
+          </div>
+        </section>
+      </li>
+  </ul>
+</section>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h3>Total price:</h3>
+    {{orderTotalPrice}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3" >
+    <button class="btn btn-info" add-attr="statusCartBatton" ng-click="go('/')"> Back to shop </button>
+  </div>
+</div>
+</div>
+<div ng-if="orderStatusOk">
+  <section class="row" >
+    <h1 class="text-center h2" >Your Order is placed. Thank you.</h1>
+  </section>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3" >
+      <button class="btn btn-info" add-attr="statusCartBatton" ng-click="go('/')"> Back to shop </button>
+    </div>
+  </div>
+</div>

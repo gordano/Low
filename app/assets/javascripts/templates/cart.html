@@ -1,0 +1,45 @@
+<section class="row" ng-if="cartProducts">
+  <h1 class="text-center h2" ng-if="cartProducts">products in cart</h1>
+  <ul class="list-unstyled">
+      <li ng-repeat="cartProduct in cartProducts">
+        <section class="well col-md-6 col-md-offset-3">
+          <div class="row">
+            <div class="col-md-2">
+              {{cartProduct.title}}
+            </div>
+            <div class="col-md-2">
+              {{cartProduct.brand}}
+            </div>
+            <div class="col-md-2">
+              {{cartProduct.price}}
+            </div>
+            <div class="col-md-2">
+              {{cartProduct.nicotine}}
+            </div>
+            <div class="col-md-3">
+              <input id="product_price" min="0" step="1" ng-model="cartProduct.quantity" name="product[quantity]" type="number" ng-change="changeQuantity($index)">
+            </div>
+            <div class="col-md-2">
+              <button class="btn btn-danger" ng-click="removeFromCartClick($index)">Delete</button>
+            </div>
+          </div>
+        </section>
+      </li>
+  </ul>
+</section>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h3>Total price:</h3>
+    {{cartTotalPrice}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3" >
+    <button class="btn btn-info" add-attr="statusCartBatton" ng-click="go('/')"> Back to shop </button>
+  </div>
+  <div class="col-md-6 col-md-offset-8" >
+    <button class="btn btn-success" add-attr="statusCartBatton" ng-click="go('/checkout')">Checkout order</button>
+  </div>
+</div>
+

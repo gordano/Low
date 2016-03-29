@@ -26,6 +26,7 @@ gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'activeadmin', github: 'activeadmin'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'bower-rails', '~> 0.10.0'
+gem 'angular-rails-templates', '~> 1.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

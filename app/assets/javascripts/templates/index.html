@@ -1,0 +1,66 @@
+<header class="row">
+  <h1 class="text-center col-md-6 col-md-offset-3">Find Recipes</h1>
+</header>
+
+
+<section class="row" ng-if="products">
+
+
+
+
+
+  <h1 class="text-center h2">Products</h1>
+  <ul class="list-unstyled">
+    <li ng-repeat="product in products">
+      <section class="well col-md-6 col-md-offset-3">
+
+        <div class="row">
+          <h2 class="h3 col-md-6 text-right" style="margin-top: 0"><a href >{{product.title}}</a></h2>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            {{product.description}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-message" ng-model="product.nicotine_error">{{product.nicotine_error}}</div>
+          <div class="col-md-6">
+              <select ng-options="nicotine as nicotine.count for nicotine in nicotines track by nicotine.count" ng-model="product.selected" required></select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            {{product.price}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <img ng-src="{{product.image}}" alt="Description" width=200/>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6" >
+            <div class="form-group">
+              <button type="submit" class="btn btn-info" add-attr="statusCartBatton" ng-click="addToCartClick(product, $index)"> Add to Cart </button>
+            </div>
+          </div>
+          <div class="col-md-6" >
+            <div class="form-group">
+              <button type="submit" class="btn btn-success" add-attr="statusCartBatton" ng-click="go('/cart')"> Go to cart</button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </li>
+  </ul>
+</section>
+
+
+
+
+
+
