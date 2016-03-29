@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329191549) do
+ActiveRecord::Schema.define(version: 20160329195552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,8 +49,58 @@ ActiveRecord::Schema.define(version: 20160329191549) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "brands", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "details", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.integer  "product_count"
+    t.integer  "nicotine_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "nicotines", force: :cascade do |t|
+    t.float    "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "fio"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "comment"
+    t.float    "totalPrice"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.text     "description"
+    t.float    "price"
+    t.integer  "niconite_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "products", ["title"], name: "index_products_on_title", using: :btree
+
+  create_table "shops", force: :cascade do |t|
+    t.string   "title"
+    t.text     "about"
+    t.string   "email"
+    t.string   "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
