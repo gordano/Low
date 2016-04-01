@@ -1,0 +1,199 @@
+<body>
+    <header>
+      <div class="container">
+        <nav role="navigation" class="navbar navbar-default">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand"><img alt="Brand" src="<%= asset_path('logo.png') %>"></a>
+          </div>
+          <!-- Collection of nav links, forms, and other content for toggling -->
+          <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-left">
+              <li><a href="#">О нас</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-center">
+              <li><a href="#" class="navbar-brand"><img alt="Brand" src="<%= asset_path('logo.png') %>"></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" class="minicart"><span>В корзине товаров</span><i class="sum">78</i></a></li>
+            </ul>
+          </div>
+        </nav>
+
+      </div>
+    </header>
+
+    <main ng-init="page=0;">
+      <div class="container">
+
+
+        <div class="brands row">
+          <div class="brands-item col-sm-6 col-md-4 col-lg-4">
+            <div class="circle" ng-class="{'active': page == 0}" ng-click="page=0;"><span class="brand-name">LowOhm LQ</span></div>
+          </div>
+          <div class="brands-item col-sm-6 col-md-4 col-lg-4">
+            <div class="circle" ng-class="{'active': page == 1}" ng-click="page=1;"><span class="brand-name">Juicy Batch</span></div>
+          </div>
+          <div class="brands-item col-sm-6 col-md-4 col-lg-4">
+            <div class="circle" ng-class="{'active': page == 2}" ng-click="page=2;"><span class="brand-name">Custom Cloud</span></div>
+          </div>
+        </div><!-- ng-show="page==0"-->
+
+        <div class="brand-page" ng-show="page==0">
+
+            <div class="about-brand panel panel-default row">
+              <div class="panel-heading"><h1>LowOhm LQ</h1></div>
+              <div class="panel-body">
+                <p>Stumptown put a bird on it hoodie yuccie pinterest cred. Pour-over echo park try-hard etsy mixtape, pop-up hashtag actually banh mi ugh sartorial. Readymade 3 wolf moon man bun kitsch gentrify messenger bag heirloom whatever scenester.</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12">
+                  <div class="product-card row">
+
+                    <div class="product-img col-xs-4 col-sm-5 col-md-4">
+                      <img src="" alt="">
+                    </div>
+                    <div class="product-info col-xs-8 col-sm-9 col-md-8">
+                      <h2 class="product-name page-header h1">Product name</h2>
+                      <p class="product-about">Stumptown put a bird on it hoodie yuccie pinterest cred.</p>
+                      <div class="form-bottom">
+                        <div class="row">
+                          <form class="product-add form-horizontal">
+                            <div class="col-sm-6 col-md-12">
+                              <div class="product-add_nicotine form-group">
+                                <label for="nicotineId" class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3">Крепкость</label>
+                                <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3">
+                                  <select id="nicotineId" class="form-control">
+                                    <option>0</option>
+                                    <option>3</option>
+                                    <option>6</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <!--div class="product-add_sum form-group">
+                                <label for="sumId" class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3">Количество</label>
+                                <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3">
+                                  <input type="number" class="form-control">
+                                </div>
+                              </div-->
+                            </div>
+                          </form>
+                        </div>
+                        <div class="product-add_btn">
+                          <button  type="button" class="btn btn-default">Добавить в корзину</button>
+                          <button  type="button" class="btn btn-success">Перейти в корзину</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12">
+                  <div class="product-card row">
+                    <div class="product-img col-xs-4 col-sm-5 col-md-4">
+                      <img src="" alt="">
+                    </div>
+                    <div class="product-info col-xs-8 col-sm-9 col-md-8">
+                      <h2 class="product-name page-header h1">Product name</h2>
+                      <p class="product-about">Stumptown put a bird on it hoodie yuccie pinterest cred.</p>
+                      <div class="form-bottom">
+                        <div class="row">
+                          <form class="product-add form-horizontal">
+                            <div class="col-sm-6 col-md-12">
+                              <div class="product-add_nicotine form-group">
+                                <label for="nicotineId" class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3">Крепкость</label>
+                                <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3">
+                                  <select id="nicotineId" class="form-control">
+                                    <option>0</option>
+                                    <option>3</option>
+                                    <option>6</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <!--div class="product-add_sum form-group">
+                                <label for="sumId" class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3">Количество</label>
+                                <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3">
+                                  <input type="number" class="form-control">
+                                </div>
+                              </div-->
+                            </div>
+                          </form>
+                        </div>
+                        <div class="product-add_btn">
+                          <button  type="button" class="btn btn-default">Добавить в корзину</button>
+                          <button  type="button" class="btn btn-success">Перейти в корзину</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="footer-item col-xs-6 col-sm-4">
+            <div>
+              <h4>Контакты</h4>
+              <div class="vcard">
+                <div>
+                  <span class="fn org">LowOhm</span>
+                </div>
+                <div class="adr">
+                  <span class="locality">г. Тверь</span>,
+                  <span class="street-address">ул. Радищева, д. 29а</span>
+                </div>
+                <div>
+                  Телефон: <abbr class="tel">+7 (890) 123-45-67</abbr>
+                </div>
+                <div>
+                  <a href="mailto:lowohm@mail.ru" class="email">lowohm@mail.ru</a>
+                </div>
+                <div>Мы работаем <span class="workhours">ежедневно с 11:00 до 24:00</span>
+                  <span class="url">
+                    <span class="value-title" title="http://www.lowohm.club"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-item col-xs-6 col-sm-4">
+            <div>
+              <h4>Мы в социальных сетях</h4>
+              <ul>
+                <li><a href="#">Вконтакте</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">YouTube</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-item col-xs-12 col-sm-4">
+            <div>
+              <h4>О сайте</h4>
+              <p>Stumptown put a bird on it hoodie yuccie pinterest cred. Pour-over echo park try-hard etsy mixtape, pop-up hashtag actually banh mi ugh sartorial. Readymade 3 wolf moon man bun kitsch gentrify messenger bag heirloom whatever scenester.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <footer class="footer-bottom">
+      <div class="container">© copyright Vilka & Gordano</div>
+    </footer>
+
+  </body>

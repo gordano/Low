@@ -9,6 +9,7 @@
     "angular-flash": "latest",
     "angular-cookies": "latest",
     "angular-messages": "latest",
-    "lodash": "latest"
+    "lodash": "latest",
+    "typographic": "latest"
   }
 }

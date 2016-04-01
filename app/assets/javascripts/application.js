@@ -20,4 +20,5 @@
 //= require angular-cookies/angular-cookies
 //= require angular-messages/angular-messages
 //= require lodash/lodash
+
 //= require_tree .
