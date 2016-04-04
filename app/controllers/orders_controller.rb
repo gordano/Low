@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
     p '***********************************************************'
     if @order.save
       render nothing: true, status: 204
+      OrdersMailer.order_placed(@order).deliver
     end
 
 

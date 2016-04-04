@@ -18,6 +18,7 @@
 //= require angular-resource/angular-resource
 //= require angular-flash/dist/angular-flash
 //= require angular-cookies/angular-cookies
+//= require bootstrap-sass-official/assets/javascripts/bootstrap
 //= require angular-messages/angular-messages
 //= require lodash/lodash
 

@@ -8,6 +8,7 @@ angular.module('receta',[
   'angular-flash.flash-alert-directive'
 ])
 
+
 .config([ '$routeProvider',
   ($routeProvider)->
     $routeProvider
@@ -25,7 +26,3 @@ angular.module('receta',[
 
 
 
-.factory 'myFactory', ->
-  { hello: 'hello world' }
-.controller "testCtrl", ($scope,myFactory,listFactory) ->
-  console.log(listFactory)

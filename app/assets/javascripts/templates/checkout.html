@@ -1,88 +1,136 @@
-<div ng-if="!orderStatusOk">
-<section class="row" ng-if="orderProducts">
-  <h1 class="text-center h2" ng-if="orderProducts">Order List </h1>
-  <section class="well col-md-6 col-md-offset-3">
+<body>
+    <main>
+      <div class="container" ng-if="orderProducts">
+        <div class="checkout about-brand panel panel-default row">
+          <div class="panel-heading"><h1 class="text-center h3">Для оформления заказа оставьте свои контактные данные</h1></div>
+          <div class="panel-body">
 
-    <form name="userForm" ng-submit="orderSubmit()" validate>
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" name="name" class="form-control"
-                    ng-model="user.fio"
-                    required>
-      </div>
-      <div class="form-group">
-        <label>Phone</label>
-        <input type="text" name="phone" class="form-control"
-                    ng-model="user.phone"
-                    required>
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="text" name="email" class="form-control"
-                    ng-model="user.email"
-                    required>
-      </div>
-      <div class="form-group">
-        <label>Comment</label>
-        <textarea type="text" name="comment" class="form-control"
-                    ng-model="user.comment"
-                    >
-        </textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-danger" >Checkout order</button>
-      </div>
-
-    </form>
-
-
-  </section>
-
-  <ul class="list-unstyled">
-      <li ng-repeat="orderProduct in orderProducts">
-        <section class="well col-md-6 col-md-offset-3">
-          <div class="row">
-            <div class="col-md-2">
-              {{orderProduct.title}}
-            </div>
-            <div class="col-md-2">
-              {{cartProduct.brand}}
-            </div>
-            <div class="col-md-2">
-              {{orderProduct.price}}
-            </div>
-            <div class="col-md-2">
-              {{orderProduct.nicotine}}
-            </div>
-            <div class="col-md-2">
-              {{orderProduct.quantity}}
+            <div ng-if="orderStatusOk">
+              <div class="col-xs-12" >
+                <h1 class="text-center h2" >Ваш заказ был отправлен. Спасибо.   </h1>
+              </div>
+              <div class="col-xs-12 text-center">
+                <button class="btn btn-default" add-attr="statusCartBatton" ng-click="go('/')"> Вернуться в магазин </button>
+              </div>
             </div>
 
+
+            <form name="userForm" ng-submit="orderSubmit()" validate ng-if="!orderStatusOk">
+              <div class="form-group col-sm-4">
+                <input type="text" name="name" class="form-control" placeholder="Имя Фамилия"
+                            ng-model="user.fio"
+                            required>
+              </div>
+              <div class="form-group col-sm-4">
+                <input type="text" name="phone" class="form-control" placeholder="Телефон"
+                            ng-model="user.phone"
+                            required>
+              </div>
+              <div class="form-group col-sm-4">
+                <input type="text" name="email" class="form-control" placeholder="E-mail"
+                            ng-model="user.email"
+                            required>
+              </div>
+              <div class="form-group col-sm-12">
+                <textarea type="text" name="comment" class="form-control" placeholder="Комментарий к заказу"
+                            ng-model="user.comment"
+                            >
+                </textarea>
+              </div>
+
+              <div class="form-group col-sm-12">
+                <button type="button" class="btn btn-danger" add-attr="statusCartBatton" ng-click="go('/')">Вернуться в магазин</button>
+                <button type="submit" class="btn btn-default">Оформить заказ</button>
+              </div>
+            </form>
           </div>
-        </section>
-      </li>
-  </ul>
-</section>
+        </div>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h3>Total price:</h3>
-    {{orderTotalPrice}}
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3" >
-    <button class="btn btn-info" add-attr="statusCartBatton" ng-click="go('/')"> Back to shop </button>
-  </div>
-</div>
-</div>
-<div ng-if="orderStatusOk">
-  <section class="row" >
-    <h1 class="text-center h2" >Your Order is placed. Thank you.</h1>
-  </section>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3" >
-      <button class="btn btn-info" add-attr="statusCartBatton" ng-click="go('/')"> Back to shop </button>
-    </div>
-  </div>
-</div>
+        <div class="order product-card row">
+          <div class="col-xs-12">
+              <h2 class="page-header text-center">Состав заказа</h2>
+              <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Товар</th>
+                            <th>Бренд</th>
+                            <th>Цена</th>
+                            <th>Никотин</th>
+                            <th>Кол-во</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="orderProduct in orderProducts">
+                            <td>{{orderProduct.title}}</td>
+                            <td>{{orderProduct.brand}}</td>
+                            <td>{{orderProduct.price}}</td>
+                            <td>{{orderProduct.nicotine}}</td>
+                            <td>{{orderProduct.quantity}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <h4 class="total-price">Итоговая стоимость: <span>{{orderTotalPrice}}</span> руб.</h4>
+            </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="footer-item col-xs-6 col-sm-4">
+            <div>
+              <h4>Контакты</h4>
+              <div class="vcard">
+                <div>
+                  <span class="fn org">LowOhm</span>
+                </div>
+                <div class="adr">
+                  <span class="locality">г. Тверь</span>,
+                  <span class="street-address">ул. Радищева, д. 29а</span>
+                </div>
+                <div>
+                  Телефон: <abbr class="tel">+7 (890) 123-45-67</abbr>
+                </div>
+                <div>
+                  <a href="mailto:lowohm@mail.ru" class="email">lowohm@mail.ru</a>
+                </div>
+                <div>Мы работаем <span class="workhours">ежедневно с 11:00 до 24:00</span>
+                  <span class="url">
+                    <span class="value-title" title="http://www.lowohm.club"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-item col-xs-6 col-sm-4">
+            <div>
+              <h4>Мы в социальных сетях</h4>
+              <ul>
+                <li><a href="#">Вконтакте</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">YouTube</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-item col-xs-12 col-sm-4">
+            <div>
+              <h4>О сайте</h4>
+              <p>Stumptown put a bird on it hoodie yuccie pinterest cred. Pour-over echo park try-hard etsy mixtape, pop-up hashtag actually banh mi ugh sartorial. Readymade 3 wolf moon man bun kitsch gentrify messenger bag heirloom whatever scenester.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <footer class="footer-bottom">
+      <div class="container">© copyright Vilka & Gordano</div>
+    </footer>
+
+</body>
+

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :products, only: [:index, :show]
+  resources :brands, only: [:index, :show]
   resources :nicotines, only: [:index]
   resources :orders, only: [:create]
 

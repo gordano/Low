@@ -3,7 +3,11 @@ angular.module("receta").controller("ProductsController",
   ($scope,$routeParams,$location,$resource,$cookies, $cookieStore, myCart)->
     $scope.search = (keywords)->  $location.path("/").search('keywords',keywords)
 
-    $scope.go = (path)->
+
+
+    $scope.go = (path,$event)->
+      $('.bs-example-modal-lg').modal('hide')
+      #console.log('element',$event.target)
       $location.path(path)
 
     myCart.init('products')
@@ -16,7 +20,7 @@ angular.module("receta").controller("ProductsController",
       $scope.outOfCart(product)
 
     $scope.addToCartClick = (product, index)->
-      console.log("!!! product id", product.id)
+      #$('.product-add_nicotine select').css('border':'1px solid red')
       if product.selected != undefined
         product.nicotine_error = undefined
 
@@ -44,11 +48,30 @@ angular.module("receta").controller("ProductsController",
       $scope.cartProducts = myCart.listItems()
       $scope.cartTotalPrice = myCart.priceTotal($scope.cartProducts)
 
-    Products = $resource('/products', { format: 'json' })
-    Nicotines = $resource('/nicotines', { format: 'json' })
 
-    Products.query((results)-> $scope.products = results )
+    Nicotines = $resource('/nicotines', { format: 'json' })
+    Brands = $resource('/brands', { format: 'json' })
+
+
     Nicotines.query((results)-> $scope.nicotines = results )
+    Brands.query((results)->
+      $scope.brands = results
+      $scope.brands = _.sortBy($scope.brands, ['id'])
+      getProductByBrand($scope.brands[0].id)
+
+    )
+
+    getProductByBrand= (bandId)->
+      Products = $resource('/products', { format: 'json', brand: bandId })
+      Products.query((results)-> $scope.products = results )
+      $scope.brandInfo = _.find($scope.brands, { 'id': bandId })
+
+
+    $scope.brandClick= (index,brand)->
+      $scope.page = index
+      getProductByBrand(brand.id)
+
+
 
 ])
 
