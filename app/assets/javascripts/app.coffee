@@ -5,7 +5,9 @@ angular.module('receta',[
   'ngCookies',
   'ngMessages',
   'angular-flash.service',
-  'angular-flash.flash-alert-directive'
+  'angular-flash.flash-alert-directive',
+  'ng-autofocus'
+
 ])
 
 
@@ -24,5 +26,28 @@ angular.module('receta',[
       )
 ])
 
+.directive 'angularAutoFocus', ->
+  {
+    restrict: 'A'
+    link: (scope, element, attrs) ->
+      console.log("sdfsdfsdfsdfsdfsdfsdfHAHAH")
+      element.focus()
 
+      return
+
+  }
+
+
+.directive 'foo',($window)->
+  return {
+    restrict: 'A'
+    link: (scope, element, attrs) ->
+      console.log('loading directive');
+      i = 0
+      while i <= 10
+        element.animate({'opacity': '0'}, 600)
+        element.animate({'opacity': '1', 'color': 'white'}, 1000)
+        i++
+
+  }
 

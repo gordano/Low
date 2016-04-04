@@ -1,9 +1,25 @@
 angular.module("receta").controller("ProductsController",
-  [ '$scope', '$routeParams', '$location', '$resource','$cookies','$cookieStore','myCart'
-  ($scope,$routeParams,$location,$resource,$cookies, $cookieStore, myCart)->
+  [ '$scope', '$routeParams', '$location', '$resource','$cookies','$cookieStore','$window','myCart'
+  ($scope,$routeParams,$location,$resource,$cookies, $cookieStore ,$window,myCart)->
     $scope.search = (keywords)->  $location.path("/").search('keywords',keywords)
 
+    angular.element($window).bind("scroll",->
 
+       top = $(document).scrollTop()
+       if top < 170
+        $(".cart-affix")
+        .animate({'opacity': '0'}, 200)
+        #.removeClass("cart-down")
+        #.addClass("cart-up")
+
+       else
+        $(".cart-affix")
+        .animate({'opacity': '1'}, 200)
+        #.removeClass("cart-up")
+        #.addClass("cart-down")
+       #console.log(e.pageYOffset)
+       #$scope.visible = false;
+   )
 
     $scope.go = (path,$event)->
       $('.bs-example-modal-lg').modal('hide')
@@ -19,8 +35,8 @@ angular.module("receta").controller("ProductsController",
       updatecartProducts()
       $scope.outOfCart(product)
 
-    $scope.addToCartClick = (product, index)->
-      #$('.product-add_nicotine select').css('border':'1px solid red')
+    $scope.addToCartClick = (product, index, event)->
+
       if product.selected != undefined
         product.nicotine_error = undefined
 
@@ -28,11 +44,30 @@ angular.module("receta").controller("ProductsController",
           console.log('Object is finded true')
         else
           myCart.addItem(product)
+
+
+        $('.product-card.row[data-index='+index+']')
+          #.addClass('border-start')
+          .css("border", "0px solid #FFF")
+          .animate({'borderColor': '#fbbd00','borderWidth': '10px',}, 150)
+          .animate({'borderColor': '#FFF','borderWidth': '0px',}, 150)
+        i = 0
+        while i <= 1
+
+          i++
+        #$('.product-card.row[data-index='+index+']')
+        #.addClass('border-stop')
+
+
         updatecartProducts()
         $scope.outOfCart(product)
 
+
+
       else
         product.nicotine_error = 'А крепкость?'
+        console.log('event', event.target.parrent)
+
 
     $scope.changeQuantity = (product)->
       myCart.updateQuantity(product,$scope.cartProducts[product].quantity)
@@ -76,3 +111,26 @@ angular.module("receta").controller("ProductsController",
 ])
 
 
+
+
+
+
+#  myApp.directive('scrolly', function () {
+#    return {
+#        restrict: 'A',
+#        link: function (scope, element, attrs) {
+#            var raw = element[0];
+#            console.log('loading directive');
+#
+#            element.bind('scroll', function () {
+#                console.log('in scroll');
+#                console.log(raw.scrollTop + raw.offsetHeight);
+#                console.log(raw.scrollHeight);
+#                if (raw.scrollTop + raw.offsetHeight > raw.scrollHeight) {
+#                    console.log("I am at the bottom");
+#                    scope.$apply(attrs.scrolly);
+#                }
+#            });
+#        }
+#    };
+#});

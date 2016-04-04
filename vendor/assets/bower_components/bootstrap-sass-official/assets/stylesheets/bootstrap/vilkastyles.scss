@@ -31,7 +31,7 @@ body {
     margin-bottom: 400px;
 }
 
-header, footer {
+header, footer, .cart-affix {
     background: #1a1a1a;
 }
 
@@ -87,6 +87,7 @@ footer a:active {
 .navbar-default {
     background: #1a1a1a;
     border: none;
+    z-index: 1000;
 }
 
 .navbar {
@@ -108,7 +109,8 @@ footer a:active {
 }
 
 .navbar-default {
-  text-align:center;
+  text-align: center;
+  position: relative;
 }
 
 .navbar-nav {
@@ -123,14 +125,20 @@ footer a:active {
 }
 
 .navbar-center {
-  display: inline-block;
-  float: none;
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -94px;
 }
 
-.navbar-center > .navbar-brand {
-  position: relative;
-  display: block;
-  padding: 15px 15px;
+.navbar-center .navbar-brand {
+    cursor: pointer;
+}
+
+
+.navbar-center .navbar-brand > img {
+    max-width: 188px;
+    max-height: 112px;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -145,6 +153,32 @@ footer a:active {
 .navbar-toggle {
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.cart-affix {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 500;
+    opacity: 0;
+
+    .nav {
+        min-height: 55px;
+        max-height: 80px;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        padding-right: 15px;
+    }
+}
+
+.cart-up {
+    opacity: 0;
+    transision: opacity 1s 0s;
+}
+
+.cart-down {
+    opacity: 1;
+    transision: opacity 1s 0s;
 }
 
 @media (max-width: 1000px) {
@@ -254,14 +288,6 @@ footer a:active {
         margin-left: -15px;
     }
 
-    .navbar-center .navbar-brand {
-        margin-left: 177px;
-    }
-
-    .navbar-brand>img {
-        width: 187px;
-    }
-
     .form-horizontal .control-label {
         text-align: left;
     }
@@ -272,6 +298,10 @@ footer a:active {
 
     .modal-out-off .modal-dialog {
         width: 30%;
+    }
+
+    .checkout {
+        margin-top: 150px;
     }
 
 }
@@ -294,10 +324,13 @@ footer a:active {
 }
 
 .minicart {
+    display: block;
     height: 45px;
+    line-height: 45px;
     padding-left: 45px !important;
     background: image-url("cart.png") no-repeat left 4px;
     background-size: 39px;
+    color: #ffd24a;
     vertical-align: middle;
 }
 
@@ -305,7 +338,8 @@ footer a:active {
 .minicart:active {
     background: image-url("cart_hover.png") no-repeat left 4px;
     background-size: 39px;
-    transition: background 0.2s 0s;
+    color: #fff;
+    transition: background .2s 0s, color .2s 0s;
 }
 
 .minicart span {
@@ -405,8 +439,17 @@ footer a:active {
     padding-bottom: 40px;
     padding-top: 40px;
     background: #fff;
+    border:10px solid white;
 }
 
+.border-start{
+    border-color:#fbbd00;
+    transition: border-color 1s 0s;
+}
+.border-stop{
+    border-color:#ffffff;
+    transition: border-color 1s 0s;
+}
 .product-img {
     max-width: 180px;
     min-width: 70px;
@@ -453,7 +496,7 @@ footer a:active {
     width: 45%;
     white-space: normal;
     text-transform: uppercase;
-}
+    overflow: hidden;}
 
 .btn-default {
     color: #fff;
@@ -518,7 +561,6 @@ footer a:active {
 /*****checkout*****/
 
 .checkout {
-    margin-top: 115px;
     text-align: right;
 
     h1 {
@@ -541,10 +583,17 @@ footer a:active {
     .btn {
         width: auto;
         padding: 0 25px;
+        margin-bottom: 15px;
     }
 
     .btn-danger {
         opacity: .7;
+    }
+}
+
+@media (max-width: 570px) {
+    .checkout .btn {
+        width: 100%;
     }
 }
 

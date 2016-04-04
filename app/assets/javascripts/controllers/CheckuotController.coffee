@@ -1,7 +1,8 @@
 angular.module("receta").controller("CheckuotController",
   [ '$scope','$routeParams', '$location', '$resource','$cookies','$cookieStore','myCart'
-  ($scope, $routeParams,$location,$resource,$cookies, $cookieStore, myCart)->
+  ($scope, $routeParams,$location,$resource,$cookies, $cookieStore, myCart, angularAutoFocusq)->
 
+    $scope.focusInput = true
 
     $scope.orderStatusOk = false
     $scope.user = {}
@@ -30,3 +31,32 @@ angular.module("receta").controller("CheckuotController",
 
 
   ])
+
+
+#angular.module("receta").directive 'foo', ->
+#  (scope, element, attrs) ->
+#    console.log 'this is my directive'
+#    return
+
+
+
+
+#  myApp.directive('scrolly', function () {
+#    return {
+#        restrict: 'A',
+#        link: function (scope, element, attrs) {
+#            var raw = element[0];
+#            console.log('loading directive');
+#
+#            element.bind('scroll', function () {
+#                console.log('in scroll');
+#                console.log(raw.scrollTop + raw.offsetHeight);
+#                console.log(raw.scrollHeight);
+#                if (raw.scrollTop + raw.offsetHeight > raw.scrollHeight) {
+#                    console.log("I am at the bottom");
+#                    scope.$apply(attrs.scrolly);
+#                }
+#            });
+#        }
+#    };
+#});

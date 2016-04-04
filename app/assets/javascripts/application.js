@@ -20,6 +20,8 @@
 //= require angular-cookies/angular-cookies
 //= require bootstrap-sass-official/assets/javascripts/bootstrap
 //= require angular-messages/angular-messages
+
 //= require lodash/lodash
+//= require ng-autofocus/dist/ng-autofocus
 
 //= require_tree .
