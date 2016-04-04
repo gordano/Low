@@ -47,18 +47,8 @@ angular.module("receta").controller("ProductsController",
 
 
         $('.product-card.row[data-index='+index+']')
-          #.addClass('border-start')
-          .css("border", "0px solid #FFF")
-          .animate({'borderColor': '#fbbd00','borderWidth': '10px',}, 150)
-          .animate({'borderColor': '#FFF','borderWidth': '0px',}, 150)
-        i = 0
-        while i <= 1
-
-          i++
-        #$('.product-card.row[data-index='+index+']')
-        #.addClass('border-stop')
-
-
+          .animate({'opacity': '0.5'}, 200)
+          .animate({'opacity': '1'}, 300)
         updatecartProducts()
         $scope.outOfCart(product)
 
