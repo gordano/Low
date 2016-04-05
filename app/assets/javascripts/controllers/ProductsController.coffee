@@ -21,9 +21,8 @@ angular.module("receta").controller("ProductsController",
        #$scope.visible = false;
    )
 
-    $scope.go = (path,$event)->
+    $scope.go = (path)->
       $('.bs-example-modal-lg').modal('hide')
-      #console.log('element',$event.target)
       $location.path(path)
 
     myCart.init('products')
@@ -35,7 +34,7 @@ angular.module("receta").controller("ProductsController",
       updatecartProducts()
       $scope.outOfCart(product)
 
-    $scope.addToCartClick = (product, index, event)->
+    $scope.addToCartClick = (product, index)->
 
       if product.selected != undefined
         product.nicotine_error = undefined
@@ -55,8 +54,16 @@ angular.module("receta").controller("ProductsController",
 
 
       else
+
+        $('.cart-affix-error[data-index='+index+']')
+        .animate({'opacity': '1'}, 200)
+        .delay( 1500 )
+        .animate({'opacity': '0'},1000)
         product.nicotine_error = 'А крепкость?'
-        console.log('event', event.target.parrent)
+
+
+
+
 
 
     $scope.changeQuantity = (product)->

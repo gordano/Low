@@ -65,6 +65,12 @@
                 <div class="col-sm-12" >
                   <div class="product-card row"  data-index="{{$index}}" >
 
+                    <div class="cart-affix-error" data-index="{{$index}}" >
+                        <div class="nav text-center">
+                          Укажите крепкость!
+                        </div>
+                    </div>
+
                     <div class="product-img col-xs-4 col-sm-5 col-md-4">
                       <img ng-src="{{product.image}}"  alt="{{product.image}}">
                     </div>
@@ -96,7 +102,7 @@
                           </form>
                         </div>
                         <div class="product-add_btn">
-                          <button  type="button" style="outline: none;" class="btn btn-default popover-dismissible popover-top" data-toggle="popover" data-trigger="focus" data-placement="top" title="Popover Header" data-content="Выберите, пожалуйста, количество никотина в жидкости!" ng-click="addToCartClick(product, $index, $event)">Добавить в корзину</button>
+                          <button  type="button" style="outline: none;" class="btn btn-default popover-dismissible popover-top" data-toggle="popover" data-trigger="focus" data-placement="top" title="Popover Header" data-content="Выберите, пожалуйста, количество никотина в жидкости!" ng-click="addToCartClick(product, $index)">Добавить в корзину</button>
                           <button  type="button" style="outline: none;" class="btn btn-success" data-toggle="modal" data-target=".modal-cart" >Перейти в корзину</button>
                         </div>
                       </div>
@@ -210,7 +216,7 @@
           <div class="col-sm-6">
             <button type="button" class="btn btn-default" data-dismiss="modal">Вернуться</button>
 
-            <button type="button"  data-dismiss="modal" class="btn btn-success" ng-if="cartProducts.length > 0"  ng-click="go('/checkout',$event)">Оформить</button>
+            <button type="button"  data-dismiss="modal" class="btn btn-success" ng-if="cartProducts.length > 0"  ng-click="go('/checkout')">Оформить</button>
 
           </div>
         </div>
@@ -218,3 +224,8 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+
+
+
