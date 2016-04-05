@@ -4,8 +4,8 @@ class OrdersMailer < ApplicationMailer
 
   def order_placed(order)
     @order = order
-    mail to: ['headbat@gmail.com'],
-         from: 'LowOhm<headbat@gmail.com>',
+    mail to: ['headbat@gmail.com, mess-tver@yandex.ru'],
+         from: 'LowOhm<mess-tver@yandex.ru>',
          #subject: @test.user.name + ': Тест пройден.'
          subject: 'Заказ №'+ @order.id.to_s + ', оформил: '+@order.fio
 

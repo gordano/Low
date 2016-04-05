@@ -35,6 +35,8 @@ angular.module("receta").controller("ProductsController",
       $scope.outOfCart(product)
 
     $scope.addToCartClick = (product, index)->
+      $('.product-card.row[data-index='+index+'] .product-add_nicotine select')
+        .css("border-color","#ccc")
 
       if product.selected != undefined
         product.nicotine_error = undefined
@@ -59,6 +61,8 @@ angular.module("receta").controller("ProductsController",
         .animate({'opacity': '1'}, 200)
         .delay( 1500 )
         .animate({'opacity': '0'},1000)
+        $('.product-card.row[data-index='+index+'] .product-add_nicotine select')
+        .css("border-color","red")
         product.nicotine_error = 'А крепкость?'
 
 
