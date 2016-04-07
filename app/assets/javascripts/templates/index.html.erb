@@ -46,71 +46,66 @@
 
         <div class="brands row">
           <div class="brands-item col-xs-12 col-sm-12 col-md-6" ng-repeat="brand in brands">
-            <div class="circle" ng-class="{'active': page == $index}" ng-click="brandClick($index,brand)"><span class="brand-name">{{brand.title}}</span></div>
+            <div class="circle" ng-class="{'active': page == $index}" ng-click="brandClick($index,brand)">
+              <span class="brand-name">{{brand.title}}</span>
+            </div>
           </div>
 
         </div><!-- ng-show="page==0"-->
 
         <div class="brand-page row">
-
+          <div class="col-xs-12">
             <div class="about-brand panel panel-default">
-              <div class="panel-heading"><h1>{{brandInfo.title}}</h1></div>
+              <div class="panel-heading">
+                <h1 class="h2">{{brandInfo.title}}</h1>
+              </div>
               <div class="panel-body">
                 <p>{{brandInfo.description}}</p>
               </div>
             </div>
+          </div>
+        </div>
 
-            <div class="row" >
-              <div class="col-sm-12 col-md-6"  ng-if="products" ng-repeat="product in products">
-                <div class="product-card row"  data-index="{{$index}}" >
+        <div class="row">
+          <div class="product col-sm-12 col-md-6" ng-if="products" ng-repeat="product in products">
+            <div class="product-card" data-index="{{$index}}">
 
-                  <div class="cart-affix-error" data-index="{{$index}}" >
-                      <div class="nav text-center">
-                        Укажите крепкость!
-                      </div>
-                  </div>
-
-                  <div class="product-img col-xs-4 col-sm-5 col-md-4">
+              <div class="product-content row">
+                <div class="product-img col-xs-4 col-sm-3 col-md-4">
+                  <div class="image">
                     <img ng-src="{{product.image}}"  alt="{{product.image}}">
                   </div>
-                  <div class="product-info col-xs-8 col-sm-9 col-md-8">
-                    <h2 class="product-name page-header h1">{{product.title}}</h2>
-                    <p class="product-about">{{product.description}}</p>
-                    <div class="form-bottom">
-                      <div class="row">
-                        <form class="product-add form-horizontal">
-                          <div class="col-sm-6 col-md-12">
-                            <div class="product-add_nicotine form-group">
+                </div>
+                <div class="product-info col-xs-8 col-sm-9 col-md-8">
 
-                              <!--div class="form-group has-error">
-                                <label class="control-label" for="inputError1" ng-model="product.nicotine_error">{{product.nicotine_error}}</label>
-                              </div-->
+                  <h2 class="product-name page-header h1">{{product.title}}</h2>
+                  <p class="product-about">{{product.description}}</p>
 
-                              <label for="nicotineId" class="control-label col-xs-6 col-sm-6 col-md-5">Крепкость</label>
-                              <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3">
-                                <select class="form-control" ng-options="nicotine as nicotine.count for nicotine in nicotines track by nicotine.count" ng-model="product.selected" required></select>
-                              </div>
-                            </div>
-                            <!--div class="product-add_sum form-group">
-                              <label for="sumId" class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3">Количество</label>
-                              <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3">
-                                <input type="number" class="form-control">
-                              </div>
-                            </div-->
-                          </div>
-                        </form>
-                      </div>
-                      <div class="product-add_btn row">
-                        <button  type="button" style="outline: none;" class="col-xs-6 btn btn-default popover-dismissible popover-top" data-toggle="popover" data-trigger="focus" data-placement="top" title="Popover Header" data-content="Выберите, пожалуйста, количество никотина в жидкости!" ng-click="addToCartClick(product, $index)">Добавить в корзину</button>
-                        <button  type="button" style="outline: none;" class="col-xs-6 btn btn-success" data-toggle="modal" data-target=".modal-cart" >Перейти в корзину</button>
-                      </div>
+                  <div class="product-add form-horizontal">
+                    <div class="product-add_nicotine form-group">
+                      <label for="nicotineId" class="control-label">Крепкость</label>
+                      <select class="form-control" ng-options="nicotine as nicotine.count for nicotine in nicotines track by nicotine.count" ng-model="product.selected" required></select>
                     </div>
                   </div>
+
+                  <div class="product-add_btn">
+                    <button  type="button" style="outline: none;" class="btn btn-default popover-dismissible popover-top" data-toggle="popover" data-trigger="focus" data-placement="top" title="Popover Header" data-content="Выберите, пожалуйста, количество никотина в жидкости!" ng-click="addToCartClick(product, $index)">Добавить в корзину</button>
+                    <button  type="button" style="outline: none;" class="btn btn-success" data-toggle="modal" data-target=".modal-cart" >Перейти в корзину</button>
+                  </div>
+
                 </div>
               </div>
+
+
+              <div class="cart-affix-error" data-index="{{$index}}" >
+                  <div class="nav text-center">
+                    Укажите крепкость!
+                  </div>
+              </div>
             </div>
+          </div>
         </div>
-      </div>
+
     </main>
 
     <footer class="footer-top">

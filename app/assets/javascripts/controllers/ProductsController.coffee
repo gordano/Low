@@ -8,17 +8,12 @@ angular.module("receta").controller("ProductsController",
        top = $(document).scrollTop()
        if top < 170
         $(".cart-affix")
-        .animate({'opacity': '0'}, 200)
-        #.removeClass("cart-down")
-        #.addClass("cart-up")
+        .animate({'opacity': '0'}, 0)
 
        else
         $(".cart-affix")
         .animate({'opacity': '1'}, 200)
-        #.removeClass("cart-up")
-        #.addClass("cart-down")
-       #console.log(e.pageYOffset)
-       #$scope.visible = false;
+
    )
 
     $scope.go = (path)->
@@ -35,7 +30,7 @@ angular.module("receta").controller("ProductsController",
       $scope.outOfCart(product)
 
     $scope.addToCartClick = (product, index)->
-      $('.product-card.row[data-index='+index+'] .product-add_nicotine select')
+      $('.product-card[data-index='+index+'] .product-add_nicotine select')
         .css("border-color","#ccc")
 
       if product.selected != undefined
@@ -47,7 +42,7 @@ angular.module("receta").controller("ProductsController",
           myCart.addItem(product)
 
 
-        $('.product-card.row[data-index='+index+']')
+        $('.product-card[data-index='+index+']')
           .animate({'opacity': '0.5'}, 200)
           .animate({'opacity': '1'}, 300)
         updatecartProducts()
@@ -61,7 +56,7 @@ angular.module("receta").controller("ProductsController",
         .animate({'opacity': '1'}, 200)
         .delay( 1500 )
         .animate({'opacity': '0'},1000)
-        $('.product-card.row[data-index='+index+'] .product-add_nicotine select')
+        $('.product-card[data-index='+index+'] .product-add_nicotine select')
         .css("border-color","red")
         product.nicotine_error = 'А крепкость?'
 
