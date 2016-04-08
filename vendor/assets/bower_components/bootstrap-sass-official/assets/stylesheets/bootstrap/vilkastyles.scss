@@ -34,8 +34,9 @@ html {
 
 body {
     font-family: $trebuchet;
-    background: #333 image-url("bg_mask.png") repeat-y;
-    background-size: cover;
+    /*background: #333 image-url("bg_mask.png") repeat-y;
+    background-size: cover;*/
+    background: #000000;
     margin-bottom: 400px;
 }
 
@@ -321,6 +322,9 @@ footer a:active {
     .modal-cart .modal-dialog {
         width: 80%;
     }
+    .modal-info .modal-dialog {
+        width: 80%;
+    }
 
     .modal-out-off .modal-dialog {
         width: 30%;
@@ -527,6 +531,7 @@ footer a:active {
                         width: 60px;
                         margin-left: 10px;
                         padding: 6px;
+                        cursor: pointer;
                     }
                 }
             }
