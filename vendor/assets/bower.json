@@ -11,6 +11,7 @@
     "angular-messages": "latest",
     "lodash": "latest",
     "typographic": "latest",
-    "ng-autofocus": "latest"
+    "ng-autofocus": "latest",
+    "angular-sanitize": "latest"
   }
 }

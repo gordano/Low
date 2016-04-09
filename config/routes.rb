@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :brands, only: [:index, :show]
   resources :nicotines, only: [:index]
   resources :orders, only: [:create]
+  resources :shops, only: [:index]
 
   #constraints subdomain: 'api' do
   #  resources :products
