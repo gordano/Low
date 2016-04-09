@@ -82,7 +82,11 @@ angular.module("receta").controller("ProductsController",
 
     Nicotines = $resource('/nicotines', { format: 'json' })
     Brands = $resource('/brands', { format: 'json' })
-
+    Shop = $resource('/shops', { format: 'json' })
+    Shop.query((results)->
+      $scope.shop = results
+      $scope.shopInfo = $scope.shop['0'].about
+    )
 
     Nicotines.query((results)-> $scope.nicotines = results )
     Brands.query((results)->
@@ -91,6 +95,9 @@ angular.module("receta").controller("ProductsController",
       getProductByBrand($scope.brands[0].id)
 
     )
+
+
+
 
     getProductByBrand= (bandId)->
       Products = $resource('/products', { format: 'json', brand: bandId })

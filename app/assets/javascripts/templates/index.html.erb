@@ -1,8 +1,8 @@
 <body>
+  <div class="hell">
     <header>
       <div class="container" >
-        <nav role="navigation" class="navbar navbar-default">
-          <!-- Brand and toggle get grouped for better mobile display -->
+        <!--nav role="navigation" class="navbar navbar-default">
           <div class="navbar-header">
             <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
               <span class="sr-only">Toggle navigation</span>
@@ -10,12 +10,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a ng-click="go('/')" class="navbar-brand"><img alt="Brand" src="<%= asset_path('logo.png') %>"></a>
+            <a class="navbar-brand"><img alt="Brand" src="<%= asset_path('logo.png') %>"></a>
           </div>
-          <!-- Collection of nav links, forms, and other content for toggling -->
           <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
-              <li ><a data-toggle="modal" data-target=".modal-info.bs-info-modal-lg">Info</a></li>
+              <li ><a data-toggle="modal" data-target=".modal-info">Info</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-center">
               <li>
@@ -26,6 +25,31 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a data-toggle="modal" data-target=".modal-cart" class="minicart"><span>В корзине товаров</span><i class="sum">{{cartProducts.length}}</i></a></li>
+            </ul>
+          </div>
+        </nav-->
+
+        <nav role="navigation" class="navbar navbar-default">
+          <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a ng-click="go('/')" class="navbar-brand"><img alt="Brand" src="<%= asset_path('logo.png') %>"></a>
+          </div>
+          <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a data-toggle="modal" data-target=".modal-cart" class="minicart">
+                  <span>В корзине товаров</span>
+                  <i class="sum">{{cartProducts.length}}</i>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a data-toggle="modal" data-target=".modal-info">Инфо</a></li>
             </ul>
           </div>
         </nav>
@@ -44,14 +68,14 @@
     <main ng-init="page=0;">
       <div class="container">
 
-        <div class="brands row">
+        <!--div class="brands row">
           <div class="brands-item col-xs-12 col-sm-12 col-md-6" ng-repeat="brand in brands">
             <div class="circle" ng-class="{'active': page == $index}" ng-click="brandClick($index,brand)">
               <span class="brand-name">{{brand.title}}</span>
             </div>
           </div>
 
-        </div><!-- ng-show="page==0"-->
+        </div--><!-- ng-show="page==0"-->
 
         <div class="brand-page row">
           <div class="col-xs-12">
@@ -108,7 +132,7 @@
 
     </main>
 
-    <footer class="footer-top">
+    <!--footer class="footer-top">
       <div class="container">
         <div class="row">
           <div class="footer-item col-xs-6 col-sm-4">
@@ -154,16 +178,16 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer-->
     <footer class="footer-bottom">
       <div class="container">© copyright Vilka & Gordano</div>
     </footer>
 
-
+</div>
 </body>
 
 
-  <div class="modal-cart modal bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+<div class="modal-cart modal bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -227,10 +251,9 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h1 class="text-center h2 modal-title" id="gridSystemModalLabel" ng-if="cartProducts">Информация о магазине</h1>
       </div>
-      <div class="modal-body">
-        <h3>Контакты<h3>
-        <p>
-          Hammock drinking vinegar lo-fi, leggings green juice portland offal XOXO truffaut meditation. Leggings chartreuse +1, fap bushwick affogato health goth. Flexitarian hammock chillwave, viral brooklyn franzen godard kickstarter actually mlkshk pug. Meh 8-bit skateboard, chia whatever salvia knausgaard lumbersexual freegan tacos ramps migas put a bird on it occupy. Viral celiac sriracha, waistcoat authentic brunch migas chia plaid. Pork belly blue bottle distillery humblebrag sriracha pop-up, VHS irony. Tilde banh mi trust fund, migas paleo meditation 8-bit intelligentsia neutra chambray sartorial XOXO swag hammock pinterest.
+      <div class="modal-body" >
+        <h3>Контакты</h3>
+        <p ng-bind-html="shopInfo">
         </p>
       </div>
       <div class="modal-footer">

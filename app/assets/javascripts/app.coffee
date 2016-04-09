@@ -6,7 +6,8 @@ angular.module('receta',[
   'ngMessages',
   'angular-flash.service',
   'angular-flash.flash-alert-directive',
-  'ng-autofocus'
+  'ng-autofocus',
+  'ngSanitize'
 
 ])
 

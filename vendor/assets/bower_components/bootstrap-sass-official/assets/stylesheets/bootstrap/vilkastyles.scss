@@ -97,6 +97,8 @@ footer a:active {
     background: #1a1a1a;
     border: none;
     z-index: 1000;
+    text-align: center;
+    position: relative;
 }
 
 .navbar {
@@ -115,11 +117,6 @@ footer a:active {
     text-transform: uppercase;
     font-size: 18px;
     line-height: 30px;
-}
-
-.navbar-default {
-  text-align: center;
-  position: relative;
 }
 
 .navbar-nav {
@@ -150,11 +147,11 @@ footer a:active {
     max-height: 112px;
 }
 
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-nav > li > a {
     color: #ffd24a;
 }
 
-.navbar-default .navbar-nav>li>a:hover {
+.navbar-default .navbar-nav > li > a:hover {
     color: #fff;
     transition: background .2s 0s, color .2s 0s;
 }
@@ -248,7 +245,7 @@ footer a:active {
         padding: 10px 10px !important;
     }
 
-    .navbar-brand>img {
+    .navbar-brand > img {
         width: 130px;
     }
 
@@ -286,21 +283,12 @@ footer a:active {
         height: 375px;
     }
 
-
-    .modal-out-off .modal-dialog {
-        width: 50%;
-    }
-
 }
 
 @media (max-width: 470px) {
 
     .product-add_btn .btn {
         font-size: x-small;
-    }
-
-    .modal-out-off .modal-dialog {
-        width: 80%;
     }
 
 }
@@ -322,12 +310,9 @@ footer a:active {
     .modal-cart .modal-dialog {
         width: 80%;
     }
+
     .modal-info .modal-dialog {
         width: 80%;
-    }
-
-    .modal-out-off .modal-dialog {
-        width: 30%;
     }
 
     .checkout {
@@ -362,38 +347,39 @@ footer a:active {
 .minicart {
     display: block;
     height: 45px;
-    line-height: 45px;
+    line-height: 45px !important;
     padding-left: 45px !important;
     background: image-url("cart.png") no-repeat left 4px;
     background-size: 39px;
     color: #ffd24a;
     vertical-align: middle;
-}
 
-.minicart:hover,
-.minicart:active {
-    background: image-url("cart_hover.png") no-repeat left 4px;
-    background-size: 39px;
-    color: #fff;
-    transition: background .2s 0s, color .2s 0s;
-}
+    &:hover,
+    &:active {
+        background: image-url("cart_hover.png") no-repeat left 4px;
+        background-size: 39px;
+        color: #fff;
+        transition: background .2s 0s, color .2s 0s;
+    }
 
-.minicart span {
-    display: inline-block;
-    max-width: 90px;
-    margin-right: 5px;
-    line-height: 23px;
-    font-size: 15px;
-    vertical-align: middle;
-    letter-spacing: normal;
-}
+    span {
+        display: inline-block;
+        max-width: 90px;
+        margin-right: 5px;
+        line-height: 23px;
+        font-size: 15px;
+        vertical-align: middle;
+        letter-spacing: normal;
+    }
 
-.minicart i {
-    display: inline-block;
-    font-size: 53px;
-    vertical-align: middle;
-    letter-spacing: normal;
-    font-style: normal;
+    i {
+        display: inline-block;
+        font-size: 53px;
+        vertical-align: middle;
+        letter-spacing: normal;
+        font-style: normal;
+    }
+
 }
 
 .brands {
@@ -551,21 +537,9 @@ footer a:active {
     }
 }
 
-/*.border-start{
-    background-color:#fbbd00;
-    transition: background-color 1s 0s;
-}
-
-.border-stop{
-    background-color:#ffffff;
-    transition: background-color 1s 0s;
-}*/
-
-
 .page-header {
     margin-top: 0;
 }
-
 
 .form-bottom {
     margin-top: 18px;
@@ -626,13 +600,17 @@ footer a:active {
 
 .modal-dialog {
     margin: 10px auto;
-}
 
-.modal-footer {
-    text-align: left;
+    .modal-footer {
+        text-align: left;
 
-    .total-price {
-        padding-top: 18px;
+        .total-price {
+            padding-top: 18px;
+        }
+    }
+
+    p {
+        margin-top: 10px;
     }
 }
 
@@ -711,4 +689,103 @@ footer a:active {
 
 .table > tbody > tr > td {
     vertical-align: middle;
+}
+
+
+
+
+
+
+/*****VOT ON ADDDDD*****/
+
+body {
+    background: #000;
+    margin-bottom: 100px;
+}
+
+.hell {
+    background: #000;
+
+    header, footer, .cart-affix, .navbar-default {
+        background: #000;
+    }
+
+    .navbar {
+        min-height: 200px;
+    }
+
+    .navbar-nav {
+        height: 170px;
+        margin-left: 50px;
+    }
+
+    .navbar-header .navbar-brand {
+        display: block;
+        padding-left: 0;
+    }
+
+    .navbar-center .navbar-brand > img {
+        max-height: 150px;
+    }
+
+    .navbar-default .navbar-nav > li > a {
+        border-bottom: 2px solid;
+    }
+
+    .minicart {
+        height: 55px;
+        border-bottom: 2px solid;
+    }
+
+    .about-brand {
+        margin-top: 110px;
+        margin-bottom: 40px;
+        background: #000;
+        color: #fff;
+        border: none;
+        border-radius: 0;
+        font-size: 25px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+
+        .panel-heading {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 0;
+            padding-left: 0px;
+        }
+
+        .panel-body {
+            min-height: 200px;
+            padding: 20px;
+            padding-left: 0px;
+
+            p {
+                font-size: 20px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .navbar {
+            min-height: 100px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            height: 70px;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+            margin-right: 0;
+        }
+
+        .about-brand {
+            margin-top: 60px;
+        }
+    }
+
 }
