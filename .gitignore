@@ -9,10 +9,10 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-#/public/uploads/*
+/public/uploads/*
 !/log/.keep
 /tmp
-#/db/schema.db
-#config/database.yml
-#config/secrets.yml
+/db/schema.db
+config/database.yml
+config/secrets.yml
 /config/deploy/
