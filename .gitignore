@@ -10,6 +10,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /public/uploads/*
+/public/system/*
 !/log/.keep
 /tmp
 /db/schema.db
