@@ -726,21 +726,17 @@ body {
     }
 
     .navbar {
-        min-height: 200px;
+        min-height: 120px;
     }
 
     .navbar-nav {
-        height: 170px;
+        height: 120px;
         margin-left: 50px;
     }
 
     .navbar-header .navbar-brand {
         display: block;
         padding-left: 0;
-    }
-
-    .navbar-center .navbar-brand > img {
-        max-height: 150px;
     }
 
     .navbar-default .navbar-nav > li > a {
@@ -753,8 +749,8 @@ body {
     }
 
     .about-brand {
-        margin-top: 110px;
-        margin-bottom: 40px;
+        margin-top: 20px;
+        margin-bottom: 20px;
         background: #000;
         color: #fff;
         border: none;
@@ -773,12 +769,14 @@ body {
         }
 
         .panel-body {
-            min-height: 200px;
+            min-height: 150px;
             padding: 20px;
             padding-left: 0px;
+            letter-spacing: normal;
 
             p {
                 font-size: 20px;
+                letter-spacing: normal;
             }
         }
     }
@@ -803,4 +801,14 @@ body {
         }
     }
 
+    @media (min-width: 768px) {
+
+        .navbar-brand > img {
+            height: 124px;
+        }
+    }
+
+}
+.gold-text {
+    color:#ffd24a;
 }
