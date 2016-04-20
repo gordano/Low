@@ -41,7 +41,8 @@ body {
     /*background: #000000;*/
     margin-bottom: 400px;
     /*font-family: 'StudioScriptCTT', arial;*/
-
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
 }
 
 header, footer, .cart-affix {
@@ -387,14 +388,15 @@ footer a:active {
         margin-right: 5px;
         line-height: 23px;
         font-size: 15px;
-        vertical-align: middle;
+        vertical-align: top;
         letter-spacing: normal;
     }
 
     i {
         display: inline-block;
         font-size: 53px;
-        vertical-align: middle;
+        line-height: 23px;
+        vertical-align: top;
         letter-spacing: normal;
         font-style: normal;
     }
@@ -748,7 +750,7 @@ body {
     }
 
     .minicart {
-        height: 55px;
+        height: 51px;
         border-bottom: 2px solid;
     }
 
@@ -784,12 +786,12 @@ body {
             letter-spacing: normal;
 
             p {
-                font-size: 25px;
+                font-size: 20px;
                 letter-spacing: 0.05em;
             }
 
             h1 {
-                font-size: 45px;
+                font-size: 40px;
             }
         }
     }
