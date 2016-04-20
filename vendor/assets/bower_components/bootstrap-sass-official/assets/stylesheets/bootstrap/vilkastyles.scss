@@ -1,5 +1,6 @@
 @import url(http://allfont.ru/allfont.css?fonts=adine-kirnberg);
 @import url(http://allfont.ru/allfont.css?fonts=studioscriptctt);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic&subset=latin,cyrillic);
 * {
     padding:0;
     margin:0;
@@ -39,6 +40,8 @@ body {
     background-size: cover;
     /*background: #000000;*/
     margin-bottom: 400px;
+    /*font-family: 'StudioScriptCTT', arial;*/
+
 }
 
 header, footer, .cart-affix {
@@ -757,8 +760,11 @@ body {
         border: none;
         border-radius: 0;
         font-size: 25px;
+        font-style: italic;
+        font-family: 'Playfair Display', serif;
         /*font-family: 'Adine Kirnberg', arial;*/
-        font-family: 'StudioScriptCTT', arial;
+
+        /*font-family: 'StudioScriptCTT', arial;*/
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
@@ -778,12 +784,12 @@ body {
             letter-spacing: normal;
 
             p {
-                font-size: 32px;
+                font-size: 25px;
                 letter-spacing: 0.05em;
             }
 
             h1 {
-                font-size: 60px;
+                font-size: 45px;
             }
         }
     }
