@@ -1,4 +1,5 @@
-
+@import url(http://allfont.ru/allfont.css?fonts=adine-kirnberg);
+@import url(http://allfont.ru/allfont.css?fonts=studioscriptctt);
 * {
     padding:0;
     margin:0;
@@ -752,10 +753,12 @@ body {
         margin-top: 20px;
         margin-bottom: 20px;
         background: #000;
-        color: #fff;
+        color: #ffd24a;
         border: none;
         border-radius: 0;
         font-size: 25px;
+        /*font-family: 'Adine Kirnberg', arial;*/
+        font-family: 'StudioScriptCTT', arial;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
@@ -775,8 +778,12 @@ body {
             letter-spacing: normal;
 
             p {
-                font-size: 20px;
-                letter-spacing: normal;
+                font-size: 32px;
+                letter-spacing: 0.05em;
+            }
+
+            h1 {
+                font-size: 60px;
             }
         }
     }
@@ -809,6 +816,4 @@ body {
     }
 
 }
-.gold-text {
-    color:#ffd24a;
-}
+
